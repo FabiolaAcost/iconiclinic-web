@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profesional | IconiClinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body class="pagina-profesional-body">
+    <header class="pagina-profesional">
+        <nav class="navbar">
+            <div class="iconos-navbar">
+                <i class="fas fa-spa icono"></i>
+                <i class="fas fa-sun icono"></i>
+                <i class="fas fa-moon icono"></i>
+            </div>
+            <div class="menu-links">
+                <ul class="nav-links">
+                    <li><a href="#" id="btnPatientModal">Agregar Paciente</a></li>
+                </ul>
+            </div>
+
+            <a href="index.html" class="btn-login logout-btn">Cerrar Sesión</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="pacientes-section">
+            <h2 class="titulo-seccion">Pacientes</h2>
+
+            <div class="tabla-pacientes">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Descripción</th>
+                            <th><i class="fas fa-gear"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i>Valentina Moscoso</i></td>
+                            <td>
+                                <div class="acciones">
+                                    <button class="btn-editar toggle-dropdown">Editar <i class="fas fa-chevron-down"></i></button>
+                                    <div class="dropdown-acciones hidden">
+                                        <ul>
+                                            <li><a href="#">Rutina</a></li>
+                                            <li><a href="#">Tratamiento</a></li>
+                                            <li><a href="#">Recomendación</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal hidden" id="modal-patient">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Registrar Paciente</span>
+                <span class="close-modal" id="closePatientModal">&times;</span>
+            </div>
+            <h3>Ingreso de Paciente</h3>
+            <form class="formulario-modal">
+                <input type="text" placeholder="Nombre" required />
+                <input type="text" placeholder="Rut" required />
+                <input type="email" placeholder="Email" required />
+                <button type="submit" class="btn-form">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://instagram.com/iconiclinic" target="_blank" aria-label="Instagram" class="footer-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <p class="footer-brand">IconiClinic</p>
+            <p class="footer-year">© 2025</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Iconic Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="menu-links">
+                <ul class="nav-links">
+                    <li><a href="#tratamientos">Tratamientos</a></li>
+                    <li><a href="#nutraceuticos">Nutraceúticos</a></li>
+                    <li><a href="#consejos">Consejos</a></li>
+                </ul>
+            </div>
+
+            <select class="menu-mobile" onchange="location = this.value;">
+                <option value="" hidden selected>Menú</option>
+                <option value="#tratamientos">Tratamientos</option>
+                <option value="#nutraceuticos">Nutracéuticos</option>
+                <option value="#consejos">Consejos</option>
+            </select>
+
+            <a href="#" class="btn-login">Ingresa o Registrate</a>
+            <div id="modal-dropdown" class="modal-dropdown hidden">
+                <button class="btn-open-login">Inicia Sesión</button>
+                <p>¿No tienes Cuenta? <a href="#" class="btn-open-register">Crea una</a></p>
+            </div>
+        </nav>
+
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Be unique,<br><span class="iconic-line">Be iconic</span></h1>
+            <p>Tu piel en manos expertas, con tratamientos que realzan <br> tu belleza natural con calidad y dedicación.
+            </p>
+            <a href="https://encuadrado.com/p/cosmetologia-iconic-clinic/" target="_blank" class="btn-primary">AGENDA
+                AQUÍ</a>
+        </div>
+    </section>
+
+    <section class="intro-text">
+        <p>Sabemos que cada piel es única. Por eso, nuestra plataforma <br> te acompaña en cada paso de tu tratamiento.
+        </p>
+    </section>
+
+    <section class="acceso-info">
+        <div class="info-card">
+            <img src="img/dispositivos.png" alt="Acceso">
+            <h3>Acceso</h3>
+            <p>Visualiza tus rutinas,<br> recomendaciones y tratamientos<br> desde cualquier dispositivo.</p>
+        </div>
+        <div class="info-card">
+            <img src="img/Agendar.png" alt="Agenda">
+            <h3>Agenda</h3>
+            <p>Agenda tus próximas sesiones y <br> recibe recordatorios para no <br>perder tu continuidad.</p>
+        </div>
+        <div class="info-card">
+            <img src="img/skincare.png" alt="Rutina">
+            <h3>Rutina</h3>
+            <p>Cada recomendación es <br>diseñada por tu profesional <br>según tus necesidades reales.</p>
+        </div>
+    </section>
+
+    <section id="tratamientos" class="destacados">
+        <div class="murad-logo">
+            <img src="img/murad.png" alt="Murad Logo" class="murad-logo">
+        </div>
+        <h2>Tratamientos Especializados</h2>
+        <div class="cards">
+            <div class="card-tratamiento">
+                <img src="img/face-sparkel.png" alt="Facial" class="icono-card">
+                <h4>Limpieza Facial</h4>
+                <p>Mantén tu piel limpia, luminosa y libre de impurezas con una limpieza adaptada a tu tipo de piel.</p>
+            </div>
+            <div class="card-tratamiento">
+                <img src="img/drop.png" alt="Hidratacion" class="icono-card">
+                <h4>Hidratación Facial</h4>
+                <p>Reestablece el equilibrio natural de tu piel con una hidratación profunda y duradera.</p>
+            </div>
+            <div class="card-tratamiento">
+                <img src="img/face-sparkel.png" alt="Vitamina" class="icono-card">
+                <h4>Infusión de Vitamina C</h4>
+                <p>Revitaliza tu piel con una potente infusión de Vitamina C ideal para iluminar y combatir el estrés
+                    oxidativo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutraceutico" id="nutraceuticos">
+        <div class="nutri-container">
+            <div class="nutri-img">
+                <img src="img/glisodin.jpeg" alt="GliSODin">
+            </div>
+            <div class="nutri-texto">
+                <h2>Nutrición desde adentro para potenciar tu piel</h2>
+                <h3>GliSODin®</h3>
+                <p class="sub">Tu defensa natural ante el envejecimiento</p>
+                <p>GliSODin® es un suplemento alimentario revolucionario, respaldado por <strong>más de 25 estudios
+                        clínicos.</strong></p>
+                <p>Su uso regular ayuda a <strong>reducir el estrés oxidativo, mejorar la luminosidad de la
+                        piel,</strong> y
+                    proteger las células contra el envejecimiento prematuro, potenciando los resultados de tratamientos
+                    estéticos
+                    desde el interior.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutri-container vandes">
+        <div class="nutri-texto">
+            <h3>VANDES® Piel</h3>
+            <p class="sub">Péptidos de Colágeno Bioactivos para tu salud cutánea</p>
+            <p>VANDES® es un suplemento alimentario formulado con <strong>péptidos bioactivos de colágeno Verisol®,
+                </strong> zinc, selenio y vitaminas C, D, E y biotina. Su enfoque clínico está orientado a
+                <strong>mejorar la firmeza, elasticidad e hidratación</strong> de la piel desde adentro.
+            </p>
+            <p>Gracias a su fórmula basada en evidencia científica, VANDES® <strong> estimula la producción de
+                    colágeno</strong> y
+                <strong>fortalece la estructura de la piel</strong>, el cabello y las uñas.
+            </p>
+        </div>
+        <div class="nutri-img">
+            <img src="img/VandesPiel.png" alt="Suplemento VANDES">
+        </div>
+    </section>
+
+    <section class="consejos" id="consejos">
+        <h2 class="titulo-seccion">Consejos</h2>
+        <div class="consejos-container">
+            <div class="card">
+                <p class="texto">Aplica protector solar cada mañana, incluso en días nublados. Previene manchas y
+                    envejecimiento.</p>
+                <h3>Protección Solar</h3>
+                <i class="fas fa-sun icono"></i>
+            </div>
+
+            <div class="card">
+                <p class="texto">Lava tu rostro dos veces al día con un limpiador suave. Evita jabones fuertes que
+                    resequen la piel.</p>
+                <h3>Cuidado Diario</h3>
+                <i class="fas fa-hands-wash icono"></i>
+            </div>
+
+            <div class="card">
+                <p class="texto">Usa una crema hidratante según tu tipo de piel. La hidratación es esencial para
+                    mantener la barrera cutánea.</p>
+                <h3>Hidratación Inteligente</h3>
+                <i class="fas fa-tint icono"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="habitos" id="habitos">
+        <h2 class="titulo-seccion">Pequeños hábitos, grandes resultados.</h2>
+        <div class="habitos-container">
+            <div class="card">
+                <p class="texto">Dormir 7-8 horas diarias ayuda a la regeneración celular de tu piel.</p>
+                <h3>Descanso</h3>
+                <i class="fas fa-moon icono"></i>
+            </div>
+
+            <div class="card">
+                <p class="texto">Toma al menos 2 litros de agua al día para mantener tu piel hidratada.</p>
+                <h3>Hidratación Natural</h3>
+                <i class="fas fa-tint icono"></i>
+            </div>
+
+            <div class="card">
+                <p class="texto">Incorpora suplementos con respaldo científico para realzar la belleza natural de tu
+                    piel.</p>
+                <h3>Apoyo Nutracéutico</h3>
+                <i class="fa-solid fa-spa icono"></i>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal-login" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Iniciar Sesión</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <h3>Bienvenida a IconiClinic</h3>
+            <form>
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Contraseña" required />
+                <button type="submit" class="btn-submit-login">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modal-register" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Crear Cuenta</span>
+                <span class="close-modal">&times;</span>
+            </div>
+            <h3>Bienvenida a IconClinic</h3>
+            <form>
+                <input type="text" placeholder="RUT" required />
+                <input type="email" placeholder="Email" required />
+                <input type="password" placeholder="Contraseña" required />
+                <button type="submit" class="btn-submit-login">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://instagram.com/iconiclinic" target="_blank" aria-label="Instagram" class="footer-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <p class="footer-brand">IconiClinic</p>
+            <p class="footer-year">© 2025</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

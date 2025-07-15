@@ -1,0 +1,918 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 2rem;
+  z-index: 1000;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4rem;
+  padding: 0.5rem 3rem;
+  position: relative;
+}
+
+.menu-links .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #a68856;
+}
+
+.btn-login {
+  background-color: #1f2937;
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+  background-color: #374151;
+}
+
+.menu-mobile {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  display: none;
+  width: 40%;
+  border-radius: 6px;
+  background-color: #fafafa;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: 5rem;
+}
+
+.hero {
+  background: url("../img/tratamiento-facial.jpg") no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
+  height: 100vh;
+  padding: 6rem 2rem;
+  justify-content: flex-start;
+}
+
+.hero-text {
+  max-width: 600px;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  margin-left: 0.1rem;
+}
+
+.hero-text h1 {
+  font-family: "GFS Didot", serif;
+  font-size: 5rem;
+  font-weight: normal;
+  color: #3e434e;
+  margin-bottom: 1rem;
+  margin-left: 5rem;
+}
+
+.iconic-line {
+  display: block;
+  margin-left: 3rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin-left: 3rem;
+  margin-bottom: 2rem;
+  color: #1f2937;
+}
+
+.btn-primary {
+  background-color: #1f2937;
+  padding: 1rem 5rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 8rem;
+}
+
+.intro-text {
+  display: flex;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 4rem;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.acceso-info {
+  display: flex;
+  justify-content: space-around;
+  padding: 3rem 2rem;
+  background-color: #fff;
+  flex-wrap: wrap;
+  gap: 1rem;
+  position: relative;
+}
+
+.info-card {
+  flex: 1 1 250px;
+  text-align: center;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.info-card p {
+  color: #788090;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.info-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.info-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: 12.5rem;
+  left: 99%;
+  transform: translateX(-40%);
+  width: 35%;
+  height: 4px;
+  background-color: #e5e7eb;
+}
+
+.destacados {
+  padding: 3rem 2rem;
+  background-color: #f9f4e2;
+  text-align: center;
+  position: relative;
+}
+.murad-logo {
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  height: 8rem;
+  width: auto;
+}
+
+.destacados h2 {
+  font-family: "GFS Didot", serif;
+  font-size: 2.5rem;
+  color: #5a5959;
+  margin-bottom: 2rem;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.card-tratamiento {
+  padding: 1.5rem;
+  max-width: 300px;
+}
+
+.card-tratamiento p {
+  color: #788090;
+}
+
+.icono-card {
+  width: 6rem;
+  height: 6rem;
+  color: #d1a954;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  display: inline-block;
+}
+
+.nutraceutico {
+  background-color: #fff;
+}
+
+.nutri-container {
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nutri-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.nutri-texto {
+  color: #788090;
+  text-align: justify;
+  margin-left: auto;
+  margin-right: 2.5rem;
+}
+
+.nutri-texto h2 {
+  font-size: 1.8rem;
+  color: #374151;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.nutri-texto h3 {
+  font-size: 1.5rem;
+  color: #1c2025;
+  font-weight: 600;
+  margin-top: 3rem;
+  text-align: right;
+  margin-right: 2.5rem;
+}
+
+.nutri-texto .sub {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.nutri-texto p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+  margin-right: 2.5rem;
+  margin-left: 7rem;
+}
+
+.vandes {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0;
+}
+
+.vandes .nutri-texto {
+  text-align: justify;
+  margin-left: 2.5rem;
+  margin-right: auto;
+}
+
+.vandes .nutri-texto h3 {
+  text-align: left;
+  color: #1c2025;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.vandes .nutri-texto .sub {
+  text-align: left;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #788090;
+}
+
+.vandes .nutri-texto p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  color: #788090;
+  margin-left: 0;
+  margin-right: 5rem;
+}
+
+.consejos {
+  background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.titulo-seccion {
+  font-family: "GFS Didot", serif;
+  text-align: center;
+  color: #5a5959;
+  margin-bottom: 2rem;
+}
+
+.consejos .titulo-seccion {
+  font-size: 2.5rem;
+}
+
+.consejos-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.card {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.06);
+  width: 280px;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  min-height: 340px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card .texto {
+  color: #788090;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  min-height: 100px;
+}
+
+.card h3 {
+  color: #1c2025;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.icono {
+  font-size: 2rem;
+  color: #c4a768;
+}
+
+.habitos {
+  background-color: #f9f4e2;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.habitos .titulo-seccion {
+  font-size: 1.5rem;
+}
+
+.habitos-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.footer {
+  background-color: #fff;
+  padding: 0.2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid #ddd;
+  color: #333;
+  position: relative;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.footer-icon {
+  font-size: 1.6rem;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-icon:hover {
+  color: #a68856;
+}
+
+.footer-brand {
+  font-family: "GFS Didot", serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #3e434e;
+  text-align: center;
+}
+
+.footer-year {
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.modal-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1500;
+  width: 280px;
+}
+
+.modal-dropdown button {
+  width: 70%;
+  background-color: #d1d5db;
+  border: none;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal-dropdown p {
+  margin: 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.modal-dropdown a {
+  text-decoration: underline;
+  font-weight: 600;
+  color: black;
+  margin-left: 1.5rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.modal-title {
+  font-size: 1rem;
+  color: #999;
+  font-weight: 400;
+  margin: 0;
+  margin-bottom: 1rem;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h3 {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #bfa26d;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.modal-content button {
+  background-color: #d1d5db;
+  color: black;
+  padding: 0.6rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.modal-content button:hover {
+  background-color: #bec0c3;
+}
+
+.modal-content p {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.modal-content a {
+  color: black;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.rutinas-cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 0 5rem;
+}
+
+.section-rutina {
+  background-color: #f9f4e2;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.historial {
+  background-color: #fff;
+  padding: 2rem 1rem;
+}
+
+.historial-card {
+  width: 90%;
+  max-width: 1000px;
+  min-height: 70px;
+  margin: 2rem auto;
+  text-align: center;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  flex-direction: column;
+}
+
+.historial-card .texto,
+.historial-card strong {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+}
+
+.historial-card .texto {
+  margin-bottom: 0.2rem;
+  line-height: 1.4;
+}
+
+.historial-card strong {
+  margin-top: 0;
+  display: block;
+}
+
+.seccion-historial {
+  background-color: #fff;
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.btn-agenda-recomendacion {
+  display: inline-block;
+  background-color: #cbab7c;
+  color: #2c2c2c;
+  padding: 0.4rem 3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.btn-agenda-recomendacion:hover {
+  background-color: #edd5b3;
+}
+
+.modal-label {
+  font-size: 0.9rem;
+  color: #ccc;
+  font-weight: 600;
+}
+
+.iconos-navbar {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+}
+
+.iconos-navbar .icono {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.pacientes-section {
+  background-color: #f9f4e2;
+  padding: 2rem 0;
+  min-height: calc(100vh - 80px);
+}
+
+.tabla-pacientes {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  min-height: 400px;
+}
+
+.tabla-pacientes table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-pacientes th,
+.tabla-pacientes td {
+  padding: 0.8rem 9rem;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-pacientes th {
+  background-color: #eef1f6;
+  font-weight: 600;
+}
+
+.tabla-pacientes td i {
+  color: #555;
+}
+
+.pagina-profesional-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.pagina-profesional-body main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.btn-editar {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  border: 1px solid #111111;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn-editar i {
+  font-size: 0.75rem;
+  color: #333;
+}
+
+.dropdown-acciones {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 0.5rem 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-top: 0.5rem;
+}
+
+.dropdown-acciones ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown-acciones li a {
+  display: block;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.dropdown-acciones li a:hover {
+  background-color: #f3f3f3;
+}
+
+@media (max-width: 768px) {
+  .menu-links {
+    display: none;
+  }
+
+  .menu-mobile {
+    display: block;
+  }
+
+  .pagina-profesional .navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .pagina-profesional .menu-links {
+    display: flex;
+    margin-left: 3rem;
+  }
+
+  .pagina-profesional #btnPatientModal {
+     font-size: 0.9rem;
+  }
+
+  .pagina-profesional .logout-btn {
+    align-self: center;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+
+  .info-card::after {
+    display: none;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .acceso-info {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  .intro-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    padding: 0.6rem 3rem;
+    font-size: 0.8rem;
+  }
+
+  .btn-login {
+    padding: 0.5rem 1rem;
+  }
+
+  .murad-logo {
+    position: static;
+    margin-bottom: 1rem;
+    height: 6rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .destacados h2 {
+    font-size: 1.8rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icono-card {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .nutri-container,
+  .vandes {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    text-align: center;
+  }
+
+  .nutri-texto,
+  .vandes .nutri-texto {
+    margin: 0;
+    text-align: center;
+    padding: 0;
+  }
+
+  .nutri-texto h2,
+  .nutri-texto h3,
+  .vandes .nutri-texto h3 {
+    text-align: center;
+    font-size: 25px;
+  }
+
+  .nutri-texto .sub,
+  .nutri-texto p,
+  .vandes .nutri-texto p {
+    margin: 0 auto;
+    text-align: justify;
+  }
+
+  .nutri-img img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .consejos-container,
+  .habitos-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  .card {
+    width: 90%;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .tabla-pacientes {
+    margin: 3rem;
+  }
+
+  .tabla-pacientes th,
+  .tabla-pacientes td {
+    padding: 0.8rem 4rem;
+  }
+
+  .pacientes-section {
+    padding: 1rem 0rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

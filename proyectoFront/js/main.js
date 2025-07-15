@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const password = loginForm.querySelector("input[type='password']").value;
 
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch("https://iconiclinic-web.onrender.com/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password })

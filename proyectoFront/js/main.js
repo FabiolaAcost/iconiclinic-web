@@ -11,6 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const closePatientModal = document.getElementById("closePatientModal");
   const dropdownToggles = document.querySelectorAll(".toggle-dropdown");
   const loginForm = document.querySelector("#modal-login form");
+  const rutinaModal = document.getElementById("modal-rutina");
+  const closeRutinaModal = document.getElementById("closeModalRutina");
+  const openRutinaButtons = document.querySelectorAll(".open-rutina");
+  const tratamientoModal = document.getElementById("modal-tratamiento");
+  const closeTratamientoModal = document.getElementById("closeModalTratamiento");
+  const openTratamientoButtons = document.querySelectorAll(".open-tratamiento");
+  const recomendacionModal = document.getElementById("modal-recomendacion");
+  const closeRecomendacionModal = document.getElementById("closeModalRecomendacion");
+  const openRecomendacionButtons = document.querySelectorAll(".open-recomendacion");
 
 
   if (btnLoginHeader && dropdown) {
@@ -116,6 +125,63 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (err) {
       console.error(err);
       alert("Error al conectarse con el servidor");
+    }
+  });
+}
+
+if(rutinaModal && closeRutinaModal && openRutinaButtons > 0){
+  openRutinaButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) =>{
+      e.preventDefault();
+      rutinaModal.classList.remove("hidden");
+    });
+  });
+
+  closeRutinaModal.addEventListener("click", () =>{
+    rutinaModal.classList.add("hidden");
+  });
+
+  window.addEventListener("click", (e) =>{
+    if (e.target === rutinaModal) {
+      rutinaModal.classList.add("hidden");
+    }
+  });
+}
+
+  if (tratamientoModal && closeTratamientoModal && openTratamientoButtons.length > 0) {
+    openTratamientoButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); 
+      tratamientoModal.classList.remove("hidden"); 
+    });
+  });
+
+  closeTratamientoModal.addEventListener("click", () => {
+    tratamientoModal.classList.add("hidden");
+  });
+
+    window.addEventListener("click", (e) => {
+    if (e.target === tratamientoModal) {
+      tratamientoModal.classList.add("hidden");
+    }
+  });
+}
+
+if (recomendacionModal && closeRecomendacionModal && openRecomendacionButtons.length > 0) {
+    openRecomendacionButtons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault(); 
+      recomendacionModal.classList.remove("hidden"); 
+    });
+  });
+
+  closeRecomendacionModal.addEventListener("click", () => {
+    recomendacionModal.classList.add("hidden");
+  });
+
+    window.addEventListener("click", (e) => {
+    if (e.target === recomendacionModal) {
+      recomendacionModal.classList.add("hidden");
     }
   });
 }

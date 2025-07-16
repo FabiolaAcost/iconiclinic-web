@@ -46,12 +46,13 @@
                             <td><i>Valentina Moscoso</i></td>
                             <td>
                                 <div class="acciones">
-                                    <button class="btn-editar toggle-dropdown">Editar <i class="fas fa-chevron-down"></i></button>
+                                    <button class="btn-editar toggle-dropdown">Editar <i
+                                            class="fas fa-chevron-down"></i></button>
                                     <div class="dropdown-acciones hidden">
                                         <ul>
-                                            <li><a href="#">Rutina</a></li>
-                                            <li><a href="#">Tratamiento</a></li>
-                                            <li><a href="#">Recomendación</a></li>
+                                            <li><a href="#" class="open-rutina">Rutina</a></li>
+                                            <li><a href="#" class="open-tratamiento">Tratamiento</a></li>
+                                            <li><a href="#" class="open-recomendacion">Recomendación</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -75,6 +76,50 @@
                 <input type="text" placeholder="Rut" required />
                 <input type="email" placeholder="Email" required />
                 <button type="submit" class="btn-form">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="modal-rutina">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Recomendaciones</span>
+                <span class="close-modal" id="closeModalRutina">&times;</span>
+            </div>
+            <h3>Rutina Facial</h3>
+            <form class="formulario-modal">
+                <input type="text" placeholder="Rutina de Día" required />
+                <input type="text" placeholder="Rutina de Noche" required />
+                <input type="text" placeholder="Consejos" required />
+                <button type="submit" class="btn-submit-login">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="modal-tratamiento">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Tratamiento</span>
+                <span class="close-modal" id="closeModalTratamiento">&times;</span>
+            </div>
+            <h3>Tratamiento</h3>
+            <form class="formulario-modal">
+                <input type="text" placeholder="Tratamiento realizado" required />
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal hidden" id="modal-recomendacion">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-title">Recomendaciones</span>
+                <span class="close-modal" id="closeModalRecomendacion">&times;</span>
+            </div>
+            <h3>Recomendación</h3>
+            <form class="formulario-modal">
+                <input type="text" placeholder="Próximo Tratamiento" required />
+                <button type="submit">Registrar</button>
             </form>
         </div>
     </div>

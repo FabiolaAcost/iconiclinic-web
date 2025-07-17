@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 }
 
-if(rutinaModal && closeRutinaModal && openRutinaButtons > 0){
+if(rutinaModal && closeRutinaModal && openRutinaButtons.length > 0){
   openRutinaButtons.forEach((btn) => {
     btn.addEventListener("click", (e) =>{
       e.preventDefault();

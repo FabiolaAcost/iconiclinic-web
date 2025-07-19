@@ -15,19 +15,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const rutina = data.rutina;
 
-      const diaCard = document.querySelector(".rutinas-cards-container .card:nth-child(1) ol");
+      const diaCard = document.getElementById("rutina-dia");
+      const nocheCard = document.getElementById("rutina-noche");
+      const consejoCard = document.getElementById("rutina-consejos");
+
       diaCard.innerHTML = rutina.dia?.descripcion
         .split("\n")
         .map(paso => `<li>${paso}</li>`)
         .join("");
 
-      const nocheCard = document.querySelector(".rutinas-cards-container .card:nth-child(2) ol");
       nocheCard.innerHTML = rutina.noche?.descripcion
         .split("\n")
         .map(paso => `<li>${paso}</li>`)
         .join("");
 
-      const consejoCard = document.querySelector(".rutinas-cards-container .card:nth-child(3) ol");
       consejoCard.innerHTML = rutina.consejos?.descripcion
         .split("\n")
         .map(c => `<li>${c}</li>`)

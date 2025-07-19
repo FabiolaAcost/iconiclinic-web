@@ -2,77 +2,83 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paciente | IconiClinic</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilos.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paciente | IconiClinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=GFS+Didot&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css" />
 </head>
 
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="menu-links">
-        <ul class="nav-links">
-          <li><a href="#rutina">Rutina</a></li>
-          <li><a href="#historial">Historial</a></li>
-          <li><a href="#recomendacion">Recomendaciones</a></li>
-        </ul>
-      </div>
+    <header>
+        <nav class="navbar">
+            <div class="menu-links">
+                <ul class="nav-links">
+                    <li><a href="#rutina">Rutina</a></li>
+                    <li><a href="#historial">Historial</a></li>
+                    <li><a href="#recomendacion">Recomendaciones</a></li>
+                </ul>
+            </div>
 
-      <select class="menu-mobile" onchange="location = this.value;">
-        <option value="" hidden selected>Menú</option>
-        <option value="#rutina">Rutina</option>
-        <option value="#historial">Historial</option>
-        <option value="#recomendacion">Recomendaciones</option>
-      </select>
+            <select class="menu-mobile" onchange="location = this.value;">
+                <option value="" hidden selected>Menú</option>
+                <option value="#rutina">Rutina</option>
+                <option value="#historial">Historial</option>
+                <option value="#recomendacion">Recomendaciones</option>
+            </select>
 
-      <a href="index.html" class="btn-login logout-btn">Cerrar Sesión</a>
-    </nav>
-  </header>
+            <a href="index.html" class="btn-login logout-btn">Cerrar Sesión</a>
+        </nav>
+    </header>
 
-  <section id="rutina" class="section-rutina">
-    <h2 class="titulo-seccion">Tu rutina actual</h2>
-    <div class="rutinas-cards-container">
+    <section id="rutina" class="section-rutina">
+        <h2 class="titulo-seccion">Tu rutina actual</h2>
+        <div class="rutinas-cards-container">
 
-      <div class="card">
-        <i class="fas fa-sun icono"></i>
-        <h3>Rutina de Día</h3>
-        <ol class="texto" id="rutina-dia"></ol>
-      </div>
+            <div class="card">
+                <i class="fas fa-sun icono"></i>
+                <h3>Rutina de Día</h3>
+                <ol class="texto" id="rutina-dia"></ol>
+            </div>
 
-      <div class="card">
-        <i class="fas fa-moon icono"></i>
-        <h3>Rutina de Noche</h3>
-        <ol class="texto" id="rutina-noche"></ol>
-      </div>
+            <div class="card">
+                <i class="fas fa-moon icono"></i>
+                <h3>Rutina de Noche</h3>
+                <ol class="texto" id="rutina-noche"></ol>
+            </div>
 
-      <div class="card">
-        <i class="fas fa-lightbulb icono"></i>
-        <h3>Consejos</h3>
-        <ol class="texto" id="rutina-consejos"></ol>
-      </div>
+            <div class="card">
+                <i class="fas fa-lightbulb icono"></i>
+                <h3>Consejos</h3>
+                <ol class="texto" id="rutina-consejos"></ol>
+            </div>
 
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <section id="historial" class="seccion-historial">
-    <h2 class="titulo-seccion">Historial</h2>
-    <div id="contenedor-historial" class="historial-lista"></div>
-  </section>
+    <section id="historial" class="seccion-historial">
+        <h2 class="titulo-seccion">Historial</h2>
+        <div id="contenedor-historial" class="historial-lista"></div>
+    </section>
 
-  <section id="recomendacion" class="destacados">
-    <h2>Recomendación</h2>
-    <div class="cards" id="contenedor-recomendacion"></div>
-  </section>
+    <section id="recomendacion" class="destacados">
+        <h2>Recomendación</h2>
+        <div class="cards" id="contenedor-recomendacion"></div>
+    </section>
 
-  <footer class="footer">
-    <div class="footer-content">
-      <a href="https://instagram.com/iconiclinic" target="_blank" aria-label="Instagram" class="footer-icon">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <p class="footer-brand">IconiClinic</p>
-      <p class="footer-year">© 2025</p>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="footer-content">
+            <a href="https://instagram.com/iconiclinic" target="_blank" aria-label="Instagram" class="footer-icon">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <p class="footer-brand">IconiClinic</p>
+            <p class="footer-year">© 2025</p>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/paciente.js"></script>
+</body>
+
+</html>

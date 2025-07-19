@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const btnLoginHeader = document.querySelector(".btn-login"); 
+  const btnLoginHeader = document.querySelector(".btn-login");
   const dropdown = document.getElementById("modal-dropdown");
   const modal = document.getElementById("modal-login");
   const btnOpenLogin = document.querySelector(".btn-open-login");
   const closeBtn = document.querySelector(".close-modal");
   const registerModal = document.getElementById("modal-register");
-  const loginModal = document.getElementById("modal-login");  
+  const loginModal = document.getElementById("modal-login");
   const btnPatientModal = document.getElementById("btnPatientModal");
   const modalPatient = document.getElementById("modal-patient");
   const closePatientModal = document.getElementById("closePatientModal");
@@ -88,9 +88,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-   dropdownToggles.forEach((btn) => {
+  dropdownToggles.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-      e.stopPropagation(); 
+      e.stopPropagation();
       const dropdown = btn.nextElementSibling;
       if (dropdown) {
         dropdown.classList.toggle("hidden");
@@ -99,90 +99,90 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (loginForm) {
-  loginForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-
-    const email = loginForm.querySelector("input[type='email']").value;
-    const password = loginForm.querySelector("input[type='password']").value;
-
-    try {
-      const res = await fetch("https://iconiclinic-web.onrender.com/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password })
-      });
-
-      const data = await res.json();
-      if (data.success) {
-        if (data.tipo === "paciente") {
-          window.location.href = "paciente.html";
-        } else if (data.tipo === "profesional") {
-          window.location.href = "profesional.html";
-        }
-      } else {
-        alert("Credenciales inválidas");
-      }
-    } catch (err) {
-      console.error(err);
-      alert("Error al conectarse con el servidor");
-    }
-  });
-}
-
-if(rutinaModal && closeRutinaModal && openRutinaButtons.length > 0){
-  openRutinaButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) =>{
+    loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      rutinaModal.classList.remove("hidden");
+
+      const email = loginForm.querySelector("input[type='email']").value;
+      const password = loginForm.querySelector("input[type='password']").value;
+
+      try {
+        const res = await fetch("https://iconiclinic-web.onrender.com/api/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password })
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          localStorage.setItem("id_usuario", data.id_usuario);
+          localStorage.setItem("tipo", data.tipo);
+          if (data.tipo === "paciente") {
+            window.location.href = "paciente.html";
+          }
+        } else {
+          alert("Credenciales inválidas");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("Error al conectarse con el servidor");
+      }
     });
-  });
+  }
 
-  closeRutinaModal.addEventListener("click", () =>{
-    rutinaModal.classList.add("hidden");
-  });
+  if (rutinaModal && closeRutinaModal && openRutinaButtons.length > 0) {
+    openRutinaButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        rutinaModal.classList.remove("hidden");
+      });
+    });
 
-  window.addEventListener("click", (e) =>{
-    if (e.target === rutinaModal) {
+    closeRutinaModal.addEventListener("click", () => {
       rutinaModal.classList.add("hidden");
-    }
-  });
-}
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === rutinaModal) {
+        rutinaModal.classList.add("hidden");
+      }
+    });
+  }
 
   if (tratamientoModal && closeTratamientoModal && openTratamientoButtons.length > 0) {
     openTratamientoButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault(); 
-      tratamientoModal.classList.remove("hidden"); 
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        tratamientoModal.classList.remove("hidden");
+      });
     });
-  });
 
-  closeTratamientoModal.addEventListener("click", () => {
-    tratamientoModal.classList.add("hidden");
-  });
-
-    window.addEventListener("click", (e) => {
-    if (e.target === tratamientoModal) {
+    closeTratamientoModal.addEventListener("click", () => {
       tratamientoModal.classList.add("hidden");
-    }
-  });
-}
-
-if (recomendacionModal && closeRecomendacionModal && openRecomendacionButtons.length > 0) {
-    openRecomendacionButtons.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      e.preventDefault(); 
-      recomendacionModal.classList.remove("hidden"); 
     });
-  });
-
-  closeRecomendacionModal.addEventListener("click", () => {
-    recomendacionModal.classList.add("hidden");
-  });
 
     window.addEventListener("click", (e) => {
-    if (e.target === recomendacionModal) {
+      if (e.target === tratamientoModal) {
+        tratamientoModal.classList.add("hidden");
+      }
+    });
+  }
+
+  if (recomendacionModal && closeRecomendacionModal && openRecomendacionButtons.length > 0) {
+    openRecomendacionButtons.forEach((btn) => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        recomendacionModal.classList.remove("hidden");
+      });
+    });
+
+    closeRecomendacionModal.addEventListener("click", () => {
       recomendacionModal.classList.add("hidden");
-    }
-  });
-}
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === recomendacionModal) {
+        recomendacionModal.classList.add("hidden");
+      }
+    });
+  }
 });

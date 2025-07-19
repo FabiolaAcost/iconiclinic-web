@@ -365,6 +365,7 @@ header {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
   min-height: 100px;
+  white-space: pre-line;
 }
 
 .card h3 {

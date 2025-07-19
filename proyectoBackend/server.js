@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const PORT = 3000;
+const authRoutes = require("./routes/auth.routes");
+const profesionalRoutes = require("./routes/profesional.routes");
 
 app.use(cors());
 app.use(express.json());
@@ -32,6 +34,9 @@ app.post("/login", (req, res) => {
     res.status(401).json({ success: false, message: "Credenciales inválidas" });
   }
 });
+
+app.use("/api", authRoutes);
+app.use("/api/profesional", profesionalRoutes);
 
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);

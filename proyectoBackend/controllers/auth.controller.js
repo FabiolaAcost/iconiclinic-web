@@ -1,6 +1,22 @@
 const bcrypt = require("bcrypt");
 const db = require("../db");
 
+
+const encriptarPassword = async (req, res) => {
+  const { password } = req.body;
+
+  if (!password) {
+    return res.status(400).json({ success: false, message: "Debes enviar una contraseña" });
+  }
+
+  try {
+    const hashedPassword = await bcrypt.hash(password, 10);
+    res.status(200).json({ success: true, hashedPassword });
+  } catch (error) {
+    res.status(500).json({ success: false, message: "Error al encriptar contraseña" });
+  }
+};
+
 const registrarUsuario = async (req, res) => {
   const { rut, email, password } = req.body;
 
@@ -72,5 +88,5 @@ const loginUsuario = (req, res) => {
 
 module.exports = {
   registrarUsuario,
-  loginUsuario,
+  loginUsuario,encriptarPassword
 };

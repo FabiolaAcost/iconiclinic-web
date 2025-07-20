@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const BASE_URL = "https://iconiclinic-back.onrender.com/api";
+  const BASE_URL = "https://iconiclinic-web.onrender.com/api";
   const id = localStorage.getItem("id_usuario");
 
   console.log("ID obtenido desde localStorage:", id);

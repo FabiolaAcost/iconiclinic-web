@@ -220,14 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const descripcion = formTratamiento.querySelector("input").value.trim();
-      const id_profesional = localStorage.getItem("id_usuario");
+      const id_usuario_profesional = localStorage.getItem("id_usuario");
       const id_paciente = window.getPacienteActivo();
 
       const id_tipo_tratamiento = obtenerIdTipo(descripcion, "tratamiento");
 
       if (
         !descripcion ||
-        !id_profesional ||
+        !id_usuario_profesional ||
         !id_paciente ||
         !id_tipo_tratamiento
       ) {
@@ -268,12 +268,12 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
 
       const texto = formRecomendacion.querySelector("input").value.trim();
-      const id_profesional = localStorage.getItem("id_usuario");
+      const id_usuario_profesional = localStorage.getItem("id_usuario");
       const id_paciente = window.getPacienteActivo();
 
       const id_tipo_recomendacion = obtenerIdTipo(texto, "recomendacion");
 
-      if (!texto || !id_profesional || !id_paciente || !id_tipo_recomendacion) {
+      if (!texto || !id_usuario_profesional || !id_paciente || !id_tipo_recomendacion) {
         return alert(
           "Todos los campos son obligatorios y debe comenzar con: Li, Hi o In"
         );

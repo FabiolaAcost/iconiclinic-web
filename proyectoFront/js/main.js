@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeRecomendacionModal = document.getElementById("closeModalRecomendacion");
   const openRecomendacionButtons = document.querySelectorAll(".open-recomendacion");
 
-  // Dropdown login del header
+
   if (btnLoginHeader && dropdown) {
     btnLoginHeader.addEventListener("click", (e) => {
       if (btnLoginHeader.classList.contains("logout-btn")) return;
@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Abrir y cerrar modal login
+
   if (btnOpenLogin && modal && closeBtn) {
     btnOpenLogin.addEventListener("click", () => {
       dropdown?.classList.add("hidden");
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Cambio entre login y register
+ 
   if (registerModal && loginModal) {
     const btnOpenRegister = document.querySelector(".btn-open-register");
     const closeRegister = registerModal.querySelector(".close-modal");
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Modal paciente
+
   if (btnPatientModal && modalPatient && closePatientModal) {
     btnPatientModal.addEventListener("click", (e) => {
       e.preventDefault();
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Desplegables personalizados
+ 
   dropdownToggles.forEach((btn) => {
     btn.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Login
+ 
   if (loginForm) {
     loginForm.addEventListener("submit", async (e) => {
       e.preventDefault();
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Registro
+  
   const registerForm = registerModal?.querySelector("form");
 
   if (registerForm) {
@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
           registerForm.reset();
           registerModal.classList.add("hidden");
         } else {
-          alert("❌ " + (data.message || "Error al registrarse."));
+          alert((data.message || "Error al registrarse."));
         }
       } catch (error) {
         console.error("Error:", error);
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Modal rutina
+  
   if (rutinaModal && closeRutinaModal && openRutinaButtons.length > 0) {
     openRutinaButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Modal tratamiento
+ 
   if (tratamientoModal && closeTratamientoModal && openTratamientoButtons.length > 0) {
     openTratamientoButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {
@@ -218,7 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Modal recomendación
+
   if (recomendacionModal && closeRecomendacionModal && openRecomendacionButtons.length > 0) {
     openRecomendacionButtons.forEach((btn) => {
       btn.addEventListener("click", (e) => {

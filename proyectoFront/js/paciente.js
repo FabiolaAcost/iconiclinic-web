@@ -18,12 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const dividirPasos = (texto) => {
       if (!texto) return [];
       return texto
-        .split(/(?=\d+\.\s?)/) // divide antes de cada número con punto (ej: "1. ")
+        .split(/(?=\d+\.\s?)/) 
         .map(p => p.trim())
         .filter(p => p !== "");
     };
 
-    const limpiar = t => t.replace(/^\d+\.\s*/, ""); // quita el número al inicio
+    const limpiar = t => t.replace(/^\d+\.\s*/, ""); 
 
     document.getElementById("rutina-dia").innerHTML = dividirPasos(rutina.dia?.descripcion)
       .map(p => `<li>${limpiar(p)}</li>`).join("");
@@ -47,8 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     contenedor.innerHTML = data.historial.map(t => {
-      const fecha = new Date(t.fecha).toLocaleDateString("es-CL");
-      return `
+        const fecha = t.fecha;      return `
         <div class="card historial-card">
           <p class="texto">${t.tipo_tratamiento}<br>${fecha}</p>
           <strong>Profesional: ${t.profesional}</strong>
@@ -77,5 +76,5 @@ fetch(`${BASE_URL}/paciente/recomendacion/${id}`)
       </div>
     `;
   })
-  .catch(err => console.error("❌ Error recomendación:", err));
+  .catch(err => console.error(" Error recomendación:", err));
 });

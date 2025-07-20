@@ -161,62 +161,93 @@ const guardarRutina = (req, res) => {
 
 
 const guardarTratamiento = (req, res) => {
-  const { id_paciente } = req.params;
-  const { id_profesional, id_tipo_tratamiento} = req.body;
+  const { id_usuario_paciente } = req.params;
+  const { id_usuario_profesional, id_tipo_tratamiento } = req.body;
 
-  if (!id_profesional || !id_tipo_tratamiento) {
+  if (!id_usuario_profesional || !id_tipo_tratamiento) {
     return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
   }
 
-  const fechaTratamiento = new Date().toISOString().slice(0, 10); // formato YYYY-MM-DD
+  // Obtener IDs reales desde tabla profesional y paciente
+  const queryPaciente = "SELECT id_paciente FROM paciente WHERE id_usuario = ?";
+  const queryProfesional = "SELECT id_profesional FROM profesional WHERE id_usuario = ?";
 
-  const query = `
-    INSERT INTO tratamiento (fecha, id_paciente, id_profesional, id_tipo_tratamiento)
-    VALUES (?, ?, ?, ?)
-  `;
-
-  db.query(query, [fechaTratamiento, id_paciente, id_profesional, id_tipo_tratamiento], (err, result) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: "Error al registrar tratamiento" });
+  db.query(queryPaciente, [id_usuario_paciente], (errP, resP) => {
+    if (errP || resP.length === 0) {
+      return res.status(404).json({ success: false, message: "Paciente no encontrado" });
     }
+    const id_paciente = resP[0].id_paciente;
 
-    res.status(201).json({
-      success: true,
-      message: "Tratamiento registrado correctamente",
-      id_tratamiento: result.insertId
+    db.query(queryProfesional, [id_usuario_profesional], (errPr, resPr) => {
+      if (errPr || resPr.length === 0) {
+        return res.status(404).json({ success: false, message: "Profesional no encontrado" });
+      }
+      const id_profesional = resPr[0].id_profesional;
+      const fechaTratamiento = new Date().toISOString().slice(0, 10);
+
+      const insert = `
+        INSERT INTO tratamiento (fecha, id_paciente, id_profesional, id_tipo_tratamiento)
+        VALUES (?, ?, ?, ?)
+      `;
+
+      db.query(insert, [fechaTratamiento, id_paciente, id_profesional, id_tipo_tratamiento], (err, result) => {
+        if (err) {
+          return res.status(500).json({ success: false, message: "Error al registrar tratamiento" });
+        }
+
+        res.status(201).json({
+          success: true,
+          message: "Tratamiento registrado correctamente",
+          id_tratamiento: result.insertId
+        });
+      });
     });
   });
 };
-
 
 const guardarRecomendacion = (req, res) => {
-  const { id_paciente } = req.params;
-  const { id_profesional, id_tipo_recomendacion} = req.body;
+  const { id_usuario_paciente } = req.params;
+  const { id_usuario_profesional, id_tipo_recomendacion } = req.body;
 
-  if (!id_profesional || !id_tipo_recomendacion) {
+  if (!id_usuario_profesional || !id_tipo_recomendacion) {
     return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
   }
 
-  const fechaRecomendacion = new Date().toISOString().slice(0, 10);
+  const queryPaciente = "SELECT id_paciente FROM paciente WHERE id_usuario = ?";
+  const queryProfesional = "SELECT id_profesional FROM profesional WHERE id_usuario = ?";
 
-  const query = `
-    INSERT INTO recomendacion (fecha, id_paciente, id_profesional, id_tipo_recomendacion)
-    VALUES (?, ?, ?, ?)
-  `;
-
-  db.query(query, [fechaRecomendacion, id_paciente, id_profesional, id_tipo_recomendacion], (err, result) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: "Error al registrar recomendación" });
+  db.query(queryPaciente, [id_usuario_paciente], (errP, resP) => {
+    if (errP || resP.length === 0) {
+      return res.status(404).json({ success: false, message: "Paciente no encontrado" });
     }
+    const id_paciente = resP[0].id_paciente;
 
-    res.status(201).json({
-      success: true,
-      message: "Recomendación registrada correctamente",
-      id_recomendacion: result.insertId
+    db.query(queryProfesional, [id_usuario_profesional], (errPr, resPr) => {
+      if (errPr || resPr.length === 0) {
+        return res.status(404).json({ success: false, message: "Profesional no encontrado" });
+      }
+      const id_profesional = resPr[0].id_profesional;
+      const fechaRecomendacion = new Date().toISOString().slice(0, 10);
+
+      const insert = `
+        INSERT INTO recomendacion (fecha, id_paciente, id_profesional, id_tipo_recomendacion)
+        VALUES (?, ?, ?, ?)
+      `;
+
+      db.query(insert, [fechaRecomendacion, id_paciente, id_profesional, id_tipo_recomendacion], (err, result) => {
+        if (err) {
+          return res.status(500).json({ success: false, message: "Error al registrar recomendación" });
+        }
+
+        res.status(201).json({
+          success: true,
+          message: "Recomendación registrada correctamente",
+          id_recomendacion: result.insertId
+        });
+      });
     });
   });
 };
-
 
 module.exports = { 
   agregarPaciente,

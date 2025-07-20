@@ -9,27 +9,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  fetch(`${BASE_URL}/paciente/rutina/${id}`)
-    .then(res => res.json())
-    .then(data => {
-      if (!data.success) throw new Error("No se encontró rutina");
-      const rutina = data.rutina;
+ fetch(`${BASE_URL}/paciente/rutina/${id}`)
+  .then(res => res.json())
+  .then(data => {
+    if (!data.success) throw new Error("No se encontró rutina");
+    const rutina = data.rutina;
 
-      const limpiar = t => t.replace(/^\d+\.\s*/, "");
+    const dividirPasos = (texto) => {
+      if (!texto) return [];
+      return texto
+        .split(/(?=\d+\.\s?)/) // divide antes de cada número con punto (ej: "1. ")
+        .map(p => p.trim())
+        .filter(p => p !== "");
+    };
 
-      document.getElementById("rutina-dia").innerHTML = rutina.dia?.descripcion
-        .split("\n")
-        .map(p => `<li>${limpiar(p)}</li>`).join("");
+    const limpiar = t => t.replace(/^\d+\.\s*/, ""); // quita el número al inicio
 
-      document.getElementById("rutina-noche").innerHTML = rutina.noche?.descripcion
-        .split("\n")
-        .map(p => `<li>${limpiar(p)}</li>`).join("");
+    document.getElementById("rutina-dia").innerHTML = dividirPasos(rutina.dia?.descripcion)
+      .map(p => `<li>${limpiar(p)}</li>`).join("");
 
-      document.getElementById("rutina-consejos").innerHTML = rutina.consejos?.descripcion
-        .split("\n")
-        .map(c => `<li>${limpiar(c)}</li>`).join("");
-    })
-    .catch(err => console.error("Error rutina:", err));
+    document.getElementById("rutina-noche").innerHTML = dividirPasos(rutina.noche?.descripcion)
+      .map(p => `<li>${limpiar(p)}</li>`).join("");
+
+    document.getElementById("rutina-consejos").innerHTML = dividirPasos(rutina.consejos?.descripcion)
+      .map(c => `<li>${limpiar(c)}</li>`).join("");
+  })
+  .catch(err => console.error("Error rutina:", err));
 
 
   fetch(`${BASE_URL}/paciente/historial/${id}`)

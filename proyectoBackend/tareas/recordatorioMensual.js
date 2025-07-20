@@ -32,9 +32,9 @@ function enviarRecordatorioMensual() {
 
       try {
         await transporter.sendMail(mailOptions);
-        console.log(`📤 Correo enviado a ${paciente.email}`);
+        console.log(`Correo enviado a ${paciente.email}`);
       } catch (err) {
-        console.error(`❌ Error al enviar a ${paciente.email}:`, err);
+        console.error(`Error al enviar a ${paciente.email}:`, err);
       }
     }
   });

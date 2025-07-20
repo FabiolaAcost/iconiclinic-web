@@ -39,7 +39,7 @@ const registrarProfesional = async (req, res) => {
 };
 
 const agregarPaciente = (req, res) => {
-  const { nombre, rut, email, id_usuario } = req.body; // id_usuario del profesional
+  const { nombre, rut, email, id_usuario } = req.body; 
 
   if (!nombre || !rut || !email || !id_usuario) {
     return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
@@ -182,8 +182,8 @@ const guardarTratamiento = (req, res) => {
     }
 
     const id_profesional = resPr[0].id_profesional;
-    const id_paciente = id_usuario_paciente; // Asumimos que ya viene bien
-    const fecha = new Date().toISOString().slice(0, 10);
+    const id_paciente = id_usuario_paciente; 
+    const fecha = new Date().toLocaleDateString('sv-SE');
 
     const insert = `
       INSERT INTO tratamiento (fecha, id_paciente, id_profesional, id_tipo_tratamiento)
@@ -230,7 +230,7 @@ const guardarRecomendacion = (req, res) => {
 
     const id_profesional = resPr[0].id_profesional;
     const id_paciente = id_usuario_paciente;
-    const fecha = new Date().toISOString().slice(0, 10);
+    const fecha = new Date().toLocaleDateString('sv-SE');
 
     const insert = `
       INSERT INTO recomendacion (fecha, id_paciente, id_profesional, id_tipo_recomendacion)

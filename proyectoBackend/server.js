@@ -7,13 +7,7 @@ const authRoutes = require("./routes/auth.routes");
 const profesionalRoutes = require("./routes/profesional.routes");
 const pacienteRoutes = require("./routes/paciente.routes");
 
-app.use(cors({
-  origin: [
-    "https://iconiclinic.netlify.app",
-    "http://localhost:5500",          
-    "http://127.0.0.1:5500"          
-  ]
-}));
+app.use(cors({ origin: "*" }));
 
 app.use(express.json());
 

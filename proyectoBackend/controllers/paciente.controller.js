@@ -43,11 +43,24 @@ const obtenerHistorialTratamientos = (req, res) => {
   const { id_usuario } = req.params;
 
   obtenerIdPaciente(id_usuario, (err, id_paciente) => {
-    if (err) return res.status(500).json({ success: false, message: "Error al buscar paciente" });
-    if (!id_paciente) return res.status(404).json({ success: false, message: "Paciente no encontrado" });
+    if (err) {
+      return res.status(500).json({
+        success: false,
+        message: "Error al buscar paciente"
+      });
+    }
+
+    if (!id_paciente) {
+      return res.status(404).json({
+        success: false,
+        message: "Paciente no encontrado"
+      });
+    }
 
     const query = `
-      SELECT t.fecha, pr.nombre AS profesional, tt.nombre AS tipo_tratamiento
+      SELECT DATE_FORMAT(t.fecha, '%Y-%m-%d') AS fecha, 
+             pr.nombre AS profesional, 
+             tt.nombre AS tipo_tratamiento
       FROM tratamiento t
       JOIN profesional pr ON t.id_profesional = pr.id_profesional
       JOIN tipo_tratamiento tt ON t.id_tipo_tratamiento = tt.id_tipo_tratamiento
@@ -56,12 +69,24 @@ const obtenerHistorialTratamientos = (req, res) => {
     `;
 
     db.query(query, [id_paciente], (err, results) => {
-      if (err) return res.status(500).json({ success: false, message: "Error al obtener historial" });
-      if (results.length === 0) {
-        return res.status(404).json({ success: false, message: "No hay tratamientos registrados" });
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          message: "Error al obtener historial"
+        });
       }
 
-      res.status(200).json({ success: true, historial: results });
+      if (results.length === 0) {
+        return res.status(404).json({
+          success: false,
+          message: "No hay tratamientos registrados"
+        });
+      }
+
+      res.status(200).json({
+        success: true,
+        historial: results
+      });
     });
   });
 };

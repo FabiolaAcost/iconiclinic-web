@@ -242,7 +242,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id_profesional, id_tipo_tratamiento }),
+            body: JSON.stringify({ id_usuario_profesional, id_tipo_tratamiento }),
           }
         );
 
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", () => {
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ id_profesional, id_tipo_recomendacion }),
+            body: JSON.stringify({ id_usuario_profesional, id_tipo_recomendacion }),
           }
         );
 

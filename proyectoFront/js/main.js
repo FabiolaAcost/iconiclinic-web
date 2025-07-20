@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
           localStorage.setItem("tipo", data.tipo);
           if (data.tipo === "paciente") {
             window.location.href = "paciente.html";
+          } else if (data.tipo === "profesional") {
+          window.location.href = "profesional.html";
           }
         } else {
           alert("Credenciales inválidas");

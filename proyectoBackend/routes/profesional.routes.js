@@ -4,7 +4,7 @@ const { agregarPaciente, registrarProfesional, obtenerPacientesDelProfesional, g
 
 router.post("/paciente", agregarPaciente);
 router.post("/registrar-profesional",registrarProfesional);
-router.get("/pacientes/:id_profesional", obtenerPacientesDelProfesional);
+router.get("/pacientes/:id_usuario", obtenerPacientesDelProfesional);
 router.post("/rutina/:id_paciente", guardarRutina);
 router.post("/tratamiento/:id_paciente", guardarTratamiento);
 router.post("/recomendacion/:id_paciente", guardarRecomendacion);

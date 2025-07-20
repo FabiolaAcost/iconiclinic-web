@@ -16,5 +16,5 @@ app.use("/api/profesional", profesionalRoutes);
 app.use("/api/paciente", pacienteRoutes);
 
 app.listen(PORT, () => {
-  console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

@@ -39,9 +39,9 @@ const registrarProfesional = async (req, res) => {
 };
 
 const agregarPaciente = (req, res) => {
-  const { nombre, rut, email } = req.body;
+  const { nombre, rut, email, id_usuario } = req.body; // id_usuario del profesional
 
-  if (!nombre || !rut || !email) {
+  if (!nombre || !rut || !email || !id_usuario) {
     return res.status(400).json({ success: false, message: "Faltan campos obligatorios" });
   }
 
@@ -57,54 +57,74 @@ const agregarPaciente = (req, res) => {
     db.query(insertUsuario, [rut, email], (err2, resultUsuario) => {
       if (err2) return res.status(500).json({ success: false, message: "Error al crear usuario" });
 
-      const id_usuario = resultUsuario.insertId;
+      const id_nuevo_usuario = resultUsuario.insertId;
 
+    
       const insertPaciente = "INSERT INTO paciente (nombre, id_usuario) VALUES (?, ?)";
-      db.query(insertPaciente, [nombre, id_usuario], (err3, resultPaciente) => {
+      db.query(insertPaciente, [nombre, id_nuevo_usuario], (err3, resultPaciente) => {
         if (err3) return res.status(500).json({ success: false, message: "Error al crear paciente" });
 
-        res.status(201).json({ success: true, message: "Paciente creado correctamente", id_paciente: resultPaciente.insertId });
+        const id_paciente = resultPaciente.insertId;
+
+        const buscarProfesional = "SELECT id_profesional FROM profesional WHERE id_usuario = ?";
+        db.query(buscarProfesional, [id_usuario], (err4, resultProf) => {
+          if (err4) return res.status(500).json({ success: false, message: "Error al obtener profesional" });
+          if (resultProf.length === 0) {
+            return res.status(404).json({ success: false, message: "Profesional no encontrado" });
+          }
+
+          const id_profesional = resultProf[0].id_profesional;
+
+          const insertRelacion = "INSERT INTO profesional_paciente (id_profesional, id_paciente) VALUES (?, ?)";
+          db.query(insertRelacion, [id_profesional, id_paciente], (err5) => {
+            if (err5) return res.status(500).json({ success: false, message: "Error al vincular paciente al profesional" });
+
+            res.status(201).json({ success: true, message: "Paciente creado y vinculado correctamente", id_paciente });
+          });
+        });
       });
     });
   });
 };
 
-//http://localhost:3000/api/profesional/pacientes/{idProfesional}
 const obtenerPacientesDelProfesional = (req, res) => {
-  const { id_profesional } = req.params;
+  const { id_usuario } = req.params;
 
-  if (!id_profesional) {
-    return res.status(400).json({ success: false, message: "ID del profesional es requerido" });
+  if (!id_usuario) {
+    return res.status(400).json({ success: false, message: "ID de usuario requerido" });
   }
 
-  const query = `
-    SELECT p.id_paciente, p.nombre, u.rut, u.email
-    FROM profesional_paciente pp
-    JOIN paciente p ON pp.id_paciente = p.id_paciente
-    JOIN usuario u ON p.id_usuario = u.id_usuario
-    WHERE pp.id_profesional = ?;
-  `;
-
-  db.query(query, [id_profesional], (err, results) => {
-    if (err) {
-      return res.status(500).json({ success: false, message: "Error al obtener pacientes" });
+  const queryProfesional = `SELECT id_profesional FROM profesional WHERE id_usuario = ?`;
+  db.query(queryProfesional, [id_usuario], (err1, result1) => {
+    if (err1) {
+      return res.status(500).json({ success: false, message: "Error al buscar profesional" });
     }
 
-    res.status(200).json({
-      success: true,
-      pacientes: results
+    if (result1.length === 0) {
+      return res.status(404).json({ success: false, message: "Profesional no encontrado" });
+    }
+
+    const id_profesional = result1[0].id_profesional;
+
+    const queryPacientes = `
+      SELECT p.id_paciente, p.nombre, u.rut, u.email
+      FROM profesional_paciente pp
+      JOIN paciente p ON pp.id_paciente = p.id_paciente
+      JOIN usuario u ON p.id_usuario = u.id_usuario
+      WHERE pp.id_profesional = ?;
+    `;
+
+    db.query(queryPacientes, [id_profesional], (err2, results) => {
+      if (err2) {
+        return res.status(500).json({ success: false, message: "Error al obtener pacientes" });
+      }
+
+      res.status(200).json({ success: true, pacientes: results });
     });
   });
 };
 
-//POST http://localhost:3000/api/profesional/rutina/{idPaciente}
-// {
-//   "rutina_dia": "1. Jabón Facial\n2. Serum ácido Hialurónico\n3. Serum Vitamina C\n4. Crema Hidratante\n5. Protector solar.",
-//   "rutina_noche": "1. Desmaquillar\n2. Jabón Facial\n3. Serum ácido Hialurónico\n4. Contorno de Ojos\n5. Crema Hidratante",
-//   "consejos_texto": "1. Aplicar productos en rostro y cuello\n2. Aplicar 3 a 4 gotas de los serums\n3. Tomar 2 litros de agua al día",
-//   "consejo_dia": "Aplicar protector solar cada 3 horas",
-//   "consejo_noche": "Realizar rutina PM obligatoriamente"
-// }
+
 const guardarRutina = (req, res) => {
   const { id_paciente } = req.params;
   const { rutina_dia, rutina_noche, consejos_texto, consejo_dia, consejo_noche } = req.body;
@@ -140,11 +160,6 @@ const guardarRutina = (req, res) => {
 };
 
 
-//POST http://localhost:3000/api/profesional/tratamiento/{idPaciente}
-// {
-//   "id_profesional": 2,
-//   "id_tipo_tratamiento": 1
-// }
 const guardarTratamiento = (req, res) => {
   const { id_paciente } = req.params;
   const { id_profesional, id_tipo_tratamiento} = req.body;
@@ -173,11 +188,7 @@ const guardarTratamiento = (req, res) => {
   });
 };
 
-//POST http://localhost:3000/api/profesional/recomendacion/{idPaciente}
-// {
-//   "id_profesional": 2,
-//   "id_tipo_tratamiento": 1
-// }
+
 const guardarRecomendacion = (req, res) => {
   const { id_paciente } = req.params;
   const { id_profesional, id_tipo_recomendacion} = req.body;
